@@ -1,0 +1,45 @@
+﻿<Window x:Class="uImageConvert.Views.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:prism="http://prismlibrary.com/" xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes" prism:ViewModelLocator.AutoWireViewModel="True" Title="{Binding Title}" Height="522" Width="444" TextElement.Foreground="{DynamicResource MaterialDesignBody}" Background="{DynamicResource MaterialDesignPaper}" TextElement.FontWeight="Medium" TextElement.FontSize="14" FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto">
+    <md:DialogHost SnackbarMessageQueue="{Binding MessageQueue, ElementName=MySnackbar}" CloseOnClickAway="True">
+        <md:DialogHost.DialogContent>
+            <Grid Height="500" Width="500"></Grid>
+        </md:DialogHost.DialogContent>
+        <md:DrawerHost IsLeftDrawerOpen="{Binding IsMenuOpen}">
+            <md:DrawerHost.LeftDrawerContent>
+                <DockPanel MinWidth="212" LastChildFill="True">
+                    <md:ColorZone DockPanel.Dock="Top" Height="36" Width="214" Mode="PrimaryMid">
+                        <DockPanel>
+                            <TextBlock Text="UNIC" FontSize="16" Margin="8,0" VerticalAlignment="Center" />
+                            <ToggleButton Style="{StaticResource MaterialDesignHamburgerToggleButton}" DockPanel.Dock="Top" HorizontalAlignment="Right" Margin="0,4,4,4" IsChecked="{Binding IsMenuOpen, Mode=TwoWay}" Height="27" Width="28" />
+                        </DockPanel>
+                    </md:ColorZone>
+                    <md:ColorZone DockPanel.Dock="Bottom" Height="45" Width="214" Mode="PrimaryDark">
+                        <DockPanel Height="45">
+                            <Button Style="{DynamicResource MaterialDesignToolButton}" Command="{Binding ExitAppCommand}">
+                                <md:PackIcon Kind="Close" Foreground="White" />
+                            </Button>
+                        </DockPanel>
+                    </md:ColorZone>
+                    <StackPanel x:Name="MenuListBox" DockPanel.Dock="Bottom">
+                        <Button Content="Main" Style="{StaticResource MaterialDesignFlatButton}" HorizontalContentAlignment="Left" Command="{Binding SwitchViewCommand}" CommandParameter="converter" />
+                        <Button Content="Setting" Style="{StaticResource MaterialDesignFlatButton}" HorizontalContentAlignment="Left" Command="{Binding SwitchViewCommand}" CommandParameter="setting" />
+                        <Button Content="About" Style="{StaticResource MaterialDesignFlatButton}" HorizontalContentAlignment="Left" Command="{Binding SwitchViewCommand}" CommandParameter="about" />
+                    </StackPanel>
+                </DockPanel>
+            </md:DrawerHost.LeftDrawerContent>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="36" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <md:ColorZone VerticalAlignment="Stretch" Mode="PrimaryMid">
+                    <StackPanel Orientation="Horizontal">
+                        <ToggleButton x:Name="Hamburger" IsChecked="{Binding IsMenuOpen, Mode=TwoWay}" Style="{DynamicResource MaterialDesignHamburgerToggleButton}" Margin="4" Height="Auto" Width="28" />
+                        <Label Content="Universal Image Converter" FontSize="16" VerticalAlignment="Center" Margin=" 4" Foreground="#DDFFFFFF" />
+                    </StackPanel>
+                </md:ColorZone>
+                <md:Snackbar x:Name="MySnackbar" MessageQueue="{md:MessageQueue}" Height="0" Margin="114,0,115,1" Width="288" />
+                <ContentControl Grid.Row="1" prism:RegionManager.RegionName="ContentRegion" />
+            </Grid>
+        </md:DrawerHost>
+    </md:DialogHost>
+</Window>
