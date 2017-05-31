@@ -37,7 +37,7 @@
                         <Label Content="Universal Image Converter" FontSize="16" VerticalAlignment="Center" Margin=" 4" Foreground="#DDFFFFFF" />
                     </StackPanel>
                 </md:ColorZone>
-                <md:Snackbar x:Name="MySnackbar" MessageQueue="{md:MessageQueue}" Height="0" Margin="114,0,115,1" Width="288" />
+                <md:Snackbar x:Name="MySnackbar" MessageQueue="{Binding MessageQueue}" Height="0" Margin="114,0,115,1" Width="288" />
                 <ContentControl Grid.Row="1" prism:RegionManager.RegionName="ContentRegion" prism:ClearChildViewsRegionBehavior.ClearChildViews="True" />
             </Grid>
         </md:DrawerHost>

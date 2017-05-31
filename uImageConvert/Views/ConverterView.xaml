@@ -19,16 +19,22 @@
             <ListBox Margin="10,10,10,41" Background="White" ItemsSource="{Binding FileList,Mode=TwoWay}"> 
             </ListBox>
         </Grid>
-        <ComboBox VerticalAlignment="Stretch" md:HintAssist.Hint="Convert Target" Style="{StaticResource MaterialDesignFloatingHintComboBox}"  Margin="20,0" Grid.Row="1">
-            <ComboBoxItem>A</ComboBoxItem>
-            <ComboBoxItem>B</ComboBoxItem>
-            <ComboBoxItem>C</ComboBoxItem>
+        <ComboBox VerticalAlignment="Stretch" SelectedItem="{Binding Format}" md:HintAssist.Hint="Convert Target" Style="{StaticResource MaterialDesignFloatingHintComboBox}"  Margin="20,0" Grid.Row="1">
+            <System:String>Bmp</System:String>
+            <System:String>Emf</System:String>
+            <System:String>Wmf</System:String>
+            <System:String>Gif</System:String>
+            <System:String>Jpeg</System:String>
+            <System:String>Png</System:String>
+            <System:String>Tiff</System:String>
+            <System:String>Exif</System:String>
+            <System:String>Icon</System:String>
         </ComboBox>
         <Button Content="..." Style="{DynamicResource MaterialDesignFlatButton}" VerticalAlignment="Top" Height="23" HorizontalAlignment="Right" Width="51" Margin="0,8,20,0" Grid.Row="2" />
-        <TextBox md:HintAssist.Hint="Target Folder" Style="{StaticResource MaterialDesignFloatingHintTextBox}" TextWrapping="Wrap" Margin="20,0,182,0" Grid.Row="2" />
+        <TextBox md:HintAssist.Hint="Target Folder" Style="{StaticResource MaterialDesignFloatingHintTextBox}" TextWrapping="Wrap" Margin="20,0,182,0" Grid.Row="2" Text="{Binding OutputPath,Mode=TwoWay}" />
         <CheckBox Content="Open Converted files in editor" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,8,0,0" Grid.Row="3" Height="26" Width="336" />
         <Button Content="Save Options..." Style="{DynamicResource MaterialDesignFlatButton}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,0,10" Grid.Row="3" Width="126" />
         <Button Content="Format options..." Style="{DynamicResource ResourceKey=MaterialDesignFlatButton}" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,0,0,10" Grid.Row="3" Width="139" />
-        <Button Content="Start" HorizontalAlignment="Center" Height="Auto" Margin="195,10" Width="110" Grid.Row="4" />
+        <Button Content="Start" HorizontalAlignment="Center" Height="Auto" Margin="195,10" Width="110" Grid.Row="4" Command="{Binding StartConvertCommand}"/>
     </Grid>
 </UserControl>

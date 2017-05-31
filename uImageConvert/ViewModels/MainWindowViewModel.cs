@@ -1,4 +1,5 @@
-﻿using Prism.Commands;
+﻿using MaterialDesignThemes.Wpf;
+using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Regions;
 
@@ -6,7 +7,12 @@ namespace uImageConvert.ViewModels
 {
     public class MainWindowViewModel : BindableBase
     {
-       
+        private SnackbarMessageQueue snackbarMessageQueue;
+        public SnackbarMessageQueue MessageQueue
+        {
+            get { return snackbarMessageQueue; }
+            set { SetProperty(ref snackbarMessageQueue, value); }
+        }
         private string _title = "uImageConverter";
         public string Title
         {
@@ -39,7 +45,8 @@ namespace uImageConvert.ViewModels
 
         public MainWindowViewModel(IRegionManager regionManager)
         {
-            _regionManager = regionManager;
+            snackbarMessageQueue = new SnackbarMessageQueue();
+               _regionManager = regionManager;
             ShowMenu("converter");
         }
     }
