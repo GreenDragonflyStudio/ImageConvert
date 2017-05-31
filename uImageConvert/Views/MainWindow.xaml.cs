@@ -10,6 +10,9 @@ namespace uImageConvert.Views
         public MainWindow()
         {
             InitializeComponent();
+            var mw = (this.DataContext as ViewModels.MainWindowViewModel);
+            mw.ShowMenu("converter");
         }
+         
     }
 }

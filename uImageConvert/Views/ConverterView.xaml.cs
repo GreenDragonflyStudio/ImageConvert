@@ -23,6 +23,7 @@ namespace uImageConvert.Views
         public ConverterView()
         {
             InitializeComponent();
+            
         }
          
     }

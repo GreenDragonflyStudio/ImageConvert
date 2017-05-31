@@ -19,9 +19,9 @@ namespace uImageConvert
         protected override void ConfigureContainer()
         {
             base.ConfigureContainer();  
+            Container.RegisterTypeForNavigation< SettingsView>("setting");
             Container.RegisterTypeForNavigation<ConverterView>("converter");
             Container.RegisterTypeForNavigation< AboutView>("about");
-            Container.RegisterTypeForNavigation< SettingsView>("setting");
             
         }
     }

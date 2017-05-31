@@ -20,7 +20,7 @@
                         </DockPanel>
                     </md:ColorZone>
                     <StackPanel x:Name="MenuListBox" DockPanel.Dock="Bottom">
-                        <Button Content="Main" Style="{StaticResource MaterialDesignFlatButton}" HorizontalContentAlignment="Left" Command="{Binding SwitchViewCommand}" CommandParameter="converter" />
+                        <Button x:Name="mnuMain" Content="Main" Style="{StaticResource MaterialDesignFlatButton}" HorizontalContentAlignment="Left" Command="{Binding SwitchViewCommand}" CommandParameter="converter" />
                         <Button Content="Setting" Style="{StaticResource MaterialDesignFlatButton}" HorizontalContentAlignment="Left" Command="{Binding SwitchViewCommand}" CommandParameter="setting" />
                         <Button Content="About" Style="{StaticResource MaterialDesignFlatButton}" HorizontalContentAlignment="Left" Command="{Binding SwitchViewCommand}" CommandParameter="about" />
                     </StackPanel>
@@ -38,7 +38,7 @@
                     </StackPanel>
                 </md:ColorZone>
                 <md:Snackbar x:Name="MySnackbar" MessageQueue="{md:MessageQueue}" Height="0" Margin="114,0,115,1" Width="288" />
-                <ContentControl Grid.Row="1" prism:RegionManager.RegionName="ContentRegion" />
+                <ContentControl Grid.Row="1" prism:RegionManager.RegionName="ContentRegion" prism:ClearChildViewsRegionBehavior.ClearChildViews="True" />
             </Grid>
         </md:DrawerHost>
     </md:DialogHost>

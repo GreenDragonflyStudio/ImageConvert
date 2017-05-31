@@ -28,7 +28,7 @@ namespace uImageConvert.ViewModels
         public DelegateCommand<string> SwitchViewCommand =>
             switchViewCommand ?? (switchViewCommand = new DelegateCommand<string>(ShowMenu));
 
-        private void ShowMenu(string uri)
+        internal void ShowMenu(string uri)
         {
             _regionManager.RequestNavigate("ContentRegion", uri);
             IsMenuOpen = false;
