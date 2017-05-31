@@ -7,4 +7,4 @@ Universal Image Converter by RasyidUFA
 this application required .NET Framework 4.5 that already installed on windows 8 or latter.
 
 ## Screenshoot
-<img src="Docs\Images\UIC.png"/>
+<img src="docs/img/UIC.png"/>
